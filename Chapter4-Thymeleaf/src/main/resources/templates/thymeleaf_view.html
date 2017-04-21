@@ -1,0 +1,35 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>thymeleaf 使用详解</title>
+
+    <!--
+    注:1.thymeleaf 在html 中的标签，所有的都要有结束标签，否则会报错
+       2.头部信息添加以下
+       <!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+        <html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+        可以使用编辑器的提示功能,同时html 中的thymeleaf 标签不会再提示错误
+    -->
+</head>
+
+<body>
+   <h1  th:text="${hello}">text</h1>
+
+   <!--1.变量表达式-->
+   <!--它们将以HTML标签的一个属性来表示-->
+   <span th:text="${session.user.name}">name</span>
+   <li th:each="book,iterStat : ${books}">
+          <span th:text="${book.id}">ID</span>
+          <span th:text="${book.bookName}">name</span>
+          <!-- 选择(星号)表达式,当前上下文环境中使用 -->
+          <span th:text="*{book.price}">name</span>
+   </li>
+
+
+
+
+
+
+</body>
+</html>

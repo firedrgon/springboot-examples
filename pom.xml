@@ -12,6 +12,7 @@
         <module>Chapter1</module>
         <module>Chapter2</module>
         <module>Chapter3</module>
+        <module>Chapter4-Thymeleaf</module>
     </modules>
 
     <properties>
@@ -48,11 +49,11 @@
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
 
-
     </dependencies>
 
     <build>
         <plugins>
+            <!--spring boot maven 插件-->
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
