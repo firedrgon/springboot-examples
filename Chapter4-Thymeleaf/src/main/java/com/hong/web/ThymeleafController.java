@@ -1,6 +1,10 @@
 package com.hong.web;
 
 import com.hong.domain.Book;
+import com.hong.localMessage.LocaleMessageSourceUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -25,6 +29,15 @@ import java.util.List;
 
 @Controller
 public class ThymeleafController {
+
+
+    private final Logger logger = LoggerFactory.getLogger(this.getClass());
+
+
+    @Autowired
+    private LocaleMessageSourceUtil localeMessageSourceUtil;
+
+
 
 
     /**
@@ -54,6 +67,10 @@ public class ThymeleafController {
                 new Book(2, "spring boot实战",79.0),
                 new Book(3,"maven 实战",39.5)));
         model.addAttribute("books",books);
+
+        String welcome=localeMessageSourceUtil.getMessage("welcome");
+        logger.info("title:...."+welcome);
+
 
 
         return "thymeleaf_view";
