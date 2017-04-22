@@ -68,11 +68,6 @@ public class ThymeleafController {
                 new Book(3,"maven 实战",39.5)));
         model.addAttribute("books",books);
 
-        String welcome=localeMessageSourceUtil.getMessage("welcome");
-        logger.info("title:...."+welcome);
-
-
-
         return "thymeleaf_view";
     }
 

@@ -1,8 +1,10 @@
 package com.hong.web;
 
+import com.hong.localMessage.LocaleMessageSourceUtil;
 import org.apache.catalina.servlet4preview.http.HttpServletRequest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -26,6 +28,8 @@ public class ChangeSessionLanauageController {
 
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
+    @Autowired
+    private LocaleMessageSourceUtil localeMessageSourceUtil;
 
     /**
      * 当前会话的区域进行切换
@@ -36,6 +40,8 @@ public class ChangeSessionLanauageController {
     @RequestMapping("/changeLocal")
     public String changeLanauage(HttpServletRequest request, HttpServletResponse response, String lang) {
 
+        String welcome=localeMessageSourceUtil.getMessage("welcome");
+        logger.info("title:...."+welcome);
 
         if(!StringUtils.isEmpty(lang)) {
             //只针对会话的设置

@@ -8,32 +8,33 @@
 ##表达式支持的语法
 
     字面（Literals）
-    文本文字（Text literals）: 'one text', 'Another one!',…
-    数字文本（Number literals）: 0, 34, 3.0, 12.3,…
-    布尔文本（Boolean literals）: true, false
-    空（Null literal）: null
-    文字标记（Literal tokens）: one, sometext, main,…
+        文本文字（Text literals）: 'one text', 'Another one!',…
+        数字文本（Number literals）: 0, 34, 3.0, 12.3,…
+        布尔文本（Boolean literals）: true, false
+        空（Null literal）: null
+        文字标记（Literal tokens）: one, sometext, main,…
     文本操作（Text operations）
-    字符串连接(String concatenation): +
-    文本替换（Literal substitutions）: |The name is ${name}|
+        字符串连接(String concatenation): +
+        文本替换（Literal substitutions）: |The name is ${name}|
     算术运算（Arithmetic operations）
-    二元运算符（Binary operators）: +, -, *, /, %
-    减号（单目运算符）Minus sign (unary operator): -
+        二元运算符（Binary operators）: +, -, *, /, %
+        减号（单目运算符）Minus sign (unary operator): -
     布尔操作（Boolean operations）
-    二元运算符（Binary operators）:and, or
-    布尔否定（一元运算符）Boolean negation (unary operator):!, not
+        二元运算符（Binary operators）:and, or
+        布尔否定（一元运算符）Boolean negation (unary operator):!, not
     比较和等价(Comparisons and equality)
-    比较（Comparators）: >, <, >=, <= (gt, lt, ge, le)
-    等值运算符（Equality operators）:==, != (eq, ne)
+        比较（Comparators）: >, <, >=, <= (gt, lt, ge, le)
+        等值运算符（Equality operators）:==, != (eq, ne)
     条件运算符（Conditional operators）
-    If-then: (if) ? (then)
-    If-then-else: (if) ? (then) : (else)
-    Default: (value) ?: (defaultvalue)
+        If-then: (if) ? (then)
+        If-then-else: (if) ? (then) : (else)
+        Default: (value) ?: (defaultvalue)
     所有这些特征可以被组合并嵌套：
     
     'User is of type ' + (${user.isAdmin()} ? 'Administrator' : (${user.type} ?: 'Unknown'))
 
-
+    参考: 博客 http://www.ityouknow.com/springboot/2016/05/01/springboot(%E5%9B%9B)-thymeleaf%E4%BD%BF%E7%94%A8%E8%AF%A6%E8%A7%A3.html
+         thymeleaf官方指南 http://www.thymeleaf.org/doc/tutorials/2.1/thymeleafspring.html#integrating-thymeleaf-with-spring
 
 ###  国际化配置
 #### 在页面上使用
