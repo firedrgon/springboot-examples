@@ -13,6 +13,9 @@
         <module>Chapter2</module>
         <module>Chapter3</module>
         <module>Chapter4-Thymeleaf</module>
+        <module>Chapter4-freemarker</module>
+        <module>Chapter4-velocity</module>
+        <module>Chapter4-jsp</module>
     </modules>
 
     <properties>
