@@ -16,6 +16,7 @@
         <module>Chapter4-freemarker</module>
         <module>Chapter4-velocity</module>
         <module>Chapter4-jsp</module>
+        <module>Chapter5-swagger</module>
     </modules>
 
     <properties>
