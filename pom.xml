@@ -17,6 +17,7 @@
         <module>Chapter4-velocity</module>
         <module>Chapter4-jsp</module>
         <module>Chapter5-swagger</module>
+        <module>Chapter6-handleException</module>
     </modules>
 
     <properties>
