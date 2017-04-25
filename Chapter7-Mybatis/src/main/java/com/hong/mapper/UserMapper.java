@@ -39,16 +39,16 @@ public interface UserMapper {
       @Result(property = "age" ,column ="age"),
       @Result(property = "id",column = "age")
     })
-    @Select("select * from t_user where id= #{id}")
+    @Select("select * from user where id= #{id}")
     User findById(@Param("id") Long id);
 
-    @Insert("INSERT INTO T_USER(NAME, AGE) VALUES(#{name}, #{age})")
+    @Insert("INSERT INTO USER(NAME, AGE) VALUES(#{name}, #{age})")
     int insert(@Param("name") String name, @Param("age") Integer age);
 
-    @Insert("update t_user set age=#{age},name=#{name} where id =#{id}")
+    @Insert("update user set age=#{age},name=#{name} where id =#{id}")
     int update(User user);
 
-    @Delete("delete from t_user where id=#{id}")
+    @Delete("delete from user where id=#{id}")
     int delete(Long id);
 
 }
