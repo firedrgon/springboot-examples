@@ -1,0 +1,1 @@
+##Hibernate ORM是JPA规范的一个实现。
