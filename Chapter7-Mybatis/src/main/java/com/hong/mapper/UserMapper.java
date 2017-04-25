@@ -6,7 +6,7 @@ import com.hong.domain.User;
 
 /**
  * @ClassName: UserMapper
- * @Description: (mybatis 注解配置)
+ * @Description: (mybatis 注解方式使用)
  * @author hong
  * @date 2017/4/25
  * @version v1.1
