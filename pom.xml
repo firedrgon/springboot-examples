@@ -20,6 +20,7 @@
         <module>Chapter6-handleException</module>
         <module>Chapter7-Hibernate</module>
         <module>Chapter7-JdbcTemplate</module>
+        <module>Chapter7-Mybatis</module>
     </modules>
 
     <properties>
