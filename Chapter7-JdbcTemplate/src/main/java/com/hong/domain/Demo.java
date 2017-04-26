@@ -1,24 +1,16 @@
 package com.hong.domain;
 
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
 
 /**
  * @ClassName: Demo
- * @Description: (hibernate 实体类（可反向生成表结构）)
+ * @Description:
  * @author hong
  * @date 2017/4/25
  * @version v1.1
  */
-@Entity
-@Table(name="t_demo")
 public class Demo {
 
-    @Id
-    @GeneratedValue
     private long id;//主键.
     private String name;//测试名称.
 
