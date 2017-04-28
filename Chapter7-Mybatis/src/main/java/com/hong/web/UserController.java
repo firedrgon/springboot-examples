@@ -1,6 +1,8 @@
 package com.hong.web;
 
 import com.hong.service.UserService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import com.hong.domain.User;
@@ -13,12 +15,16 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 public class UserController {
 
+    private final Logger logger = LoggerFactory.getLogger(this.getClass());
+
+
     @Autowired
     private UserService userService;
 
     @RequestMapping("/getUserById")
     @ResponseBody
     public User getUserById(long id){
+         logger.info(userService.getXUserById(id).toString());
          return  userService.getUserById(id);
     }
 

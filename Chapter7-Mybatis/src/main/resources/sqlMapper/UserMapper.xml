@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hong.xmlmapper.XUserMapper">
+  <resultMap id="BaseResultMap" type="com.hong.domain.User">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="age" jdbcType="INTEGER" property="age" />
+  </resultMap>
+
+  <insert id="insert">
+    INSERT INTO USER(NAME, AGE) VALUES(#{name}, #{age})
+  </insert>
+
+  <update id="update">
+    update user set age=#{age},name=#{name} where id =#{id}
+  </update>
+
+  <delete id="delete">
+    delete from user where id=#{id}
+  </delete>
+
+  <select id="findById" resultType="com.hong.domain.User">
+    select * from user where id= #{id}
+  </select>
+</mapper>
