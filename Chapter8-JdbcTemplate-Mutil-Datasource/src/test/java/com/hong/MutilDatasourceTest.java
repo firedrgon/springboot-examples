@@ -18,7 +18,7 @@ import java.util.List;
  * Created by hong on 2017/4/26.
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@SpringBootApplication(scanBasePackageClasses={Application.class, DataSourceConfig.class})
+@SpringBootApplication(scanBasePackageClasses={Application.class})
 public class MutilDatasourceTest {
 
     @Autowired

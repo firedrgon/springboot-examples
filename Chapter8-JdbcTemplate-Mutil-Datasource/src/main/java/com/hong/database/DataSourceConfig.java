@@ -6,6 +6,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 import javax.sql.DataSource;
@@ -19,6 +20,8 @@ import javax.sql.DataSource;
  * @version v1.1
  */
 @Configuration
+/** 1.5.x 时,需要指定配置文件的地址,否则获取不到对应属性 **/
+@PropertySource(ignoreResourceNotFound = true,value = "classpath:application.properties")
 public class DataSourceConfig {
 
     /**
