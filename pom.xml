@@ -23,6 +23,12 @@
         <module>Chapter7-Mybatis</module>
         <module>Chapter7-Mybatis-Mapper-Plugin</module>
         <module>Chapter8-JdbcTemplate-Mutil-Datasource</module>
+        <module>Chapter8-Mybatis-Mutil-Datasource</module>
+        <module>Chapter8-Jpa-Mutil-Datasource</module>
+        <module>Chapter9-Redis</module>
+        <module>Chapter9-MongoDB</module>
+        <module>Chapter10-Shiro</module>
+        <module>Chapter10-Spring-Security</module>
     </modules>
 
     <properties>
