@@ -1,4 +1,4 @@
-package com.hong;
+package com.hong.web;
 
 import com.hong.domain.primary.User;
 import com.hong.domain.primary.UserRepository;

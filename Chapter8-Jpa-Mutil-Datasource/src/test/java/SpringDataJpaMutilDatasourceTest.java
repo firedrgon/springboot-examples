@@ -9,6 +9,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.util.CollectionUtils;
 
@@ -18,7 +20,14 @@ import java.util.List;
  * Created by hong on 2017/5/1.
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@SpringBootApplication(scanBasePackageClasses={Application.class})
+
+
+/**
+ * 在1.4中SpringApplicationConfiguration标记为过时了，所以官方就不建议这么使用了，
+ * 那么在1.4中单元测试怎么使用呢?
+ * 注解可以在一个测试类指定运行Spring Boot为基础的测试
+ * **/
+@SpringBootTest(classes ={Application.class})
 public class SpringDataJpaMutilDatasourceTest {
 
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
