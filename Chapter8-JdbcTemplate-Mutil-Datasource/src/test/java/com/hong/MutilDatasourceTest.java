@@ -1,6 +1,5 @@
 package com.hong;
 
-import com.hong.database.DataSourceConfig;
 import com.hong.domain.Demo;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -11,6 +10,7 @@ import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.util.CollectionUtils;
 
 import java.util.List;
 
@@ -35,11 +35,13 @@ public class MutilDatasourceTest {
         String sql = "select * from demo ";
         RowMapper<Demo> rowMapper = new BeanPropertyRowMapper<>(Demo.class);
         List<Demo> demos= primaryJdbcTemplate.query(sql,rowMapper);
-        demos.forEach(e-> System.out.println(e.toString()));
-
+        if(!CollectionUtils.isEmpty(demos)) {
+            demos.forEach(e -> System.out.println(e.toString()));
+        }
         List<Demo> demos2 =secondaryJdbcTemplate.query(sql,rowMapper);
-        demos2.forEach(demo2 -> System.out.println(demo2.toString()) );
-
+        if(!CollectionUtils.isEmpty(demos2)) {
+            demos2.forEach(demo2 -> System.out.println(demo2.toString()));
+        }
     }
 
 }
