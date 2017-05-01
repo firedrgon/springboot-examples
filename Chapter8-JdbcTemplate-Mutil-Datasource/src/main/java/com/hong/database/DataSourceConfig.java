@@ -32,6 +32,7 @@ public class DataSourceConfig {
      */
     @Bean(name = "primaryDataSource")
     @Qualifier("primaryDataSource")
+    @Primary
     @ConfigurationProperties(prefix="spring.datasource.primary")
     public DataSource primaryDataSource() {
         return DataSourceBuilder.create().build();
@@ -39,7 +40,6 @@ public class DataSourceConfig {
 
     @Bean(name = "secondaryDataSource")
     @Qualifier("secondaryDataSource")
-    @Primary
     @ConfigurationProperties(prefix="spring.datasource.secondary")
     public DataSource secondaryDataSource() {
         return DataSourceBuilder.create().build();
@@ -51,13 +51,13 @@ public class DataSourceConfig {
      * 如下例子，在创建JdbcTemplate的时候分别注入名为primaryDataSource和secondaryDataSource的数据源来区分不同的JdbcTemplate。
      */
     @Bean(name = "primaryJdbcTemplate")
+    @Primary
     public JdbcTemplate primaryJdbcTemplate(
             @Qualifier("primaryDataSource") DataSource dataSource) {
         return new JdbcTemplate(dataSource);
     }
 
     @Bean(name = "secondaryJdbcTemplate")
-    @Primary
     public JdbcTemplate secondaryJdbcTemplate(
             @Qualifier("secondaryDataSource") DataSource dataSource) {
         return new JdbcTemplate(dataSource);
