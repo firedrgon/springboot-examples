@@ -18,7 +18,7 @@
         <module>Chapter4-jsp</module>
         <module>Chapter5-swagger</module>
         <module>Chapter6-handleException</module>
-        <module>Chapter7-Hibernate</module>
+        <module>Chapter7-Spring-Data-Jpa</module>
         <module>Chapter7-JdbcTemplate</module>
         <module>Chapter7-Mybatis</module>
         <module>Chapter7-Mybatis-Mapper-Plugin</module>
@@ -70,13 +70,6 @@
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
         </dependency>
-
-
-
-
-
-
-
 
 
         <!--
