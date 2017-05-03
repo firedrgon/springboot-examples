@@ -27,8 +27,6 @@
         <module>Chapter8-Jpa-Mutil-Datasource</module>
         <module>Chapter9-Redis</module>
         <module>Chapter9-MongoDB</module>
-        <module>Chapter10-Shiro</module>
-        <module>Chapter10-Spring-Security</module>
     </modules>
 
     <properties>
