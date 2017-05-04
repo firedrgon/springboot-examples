@@ -9,7 +9,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  */
 @SpringBootApplication
 /** 配置扫描mapper **/
-//@MapperScan(basePackages = "com.hong.mapper")
+@MapperScan(basePackages = "com.hong.mapper")
 public class Application {
 
     public static void main(String[] args) {
