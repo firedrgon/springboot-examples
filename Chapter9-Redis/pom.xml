@@ -13,7 +13,6 @@
 
 
     <dependencies>
-
         <!-- redis 相关支持 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
