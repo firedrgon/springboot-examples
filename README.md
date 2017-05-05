@@ -21,8 +21,8 @@ spring boot 学习系列 (使用版本 1.5.3)
 * 18.Chapter9-Redis-Cache>  spring boot 使用Redis 作为缓存实例
 * 19.Chapter10-Shiro>  Spring boot 整合Shiro 基本实例
 
-......
-##后续还有更多学习实例
+>......后续还有更多学习实例
+
 ##参考资源：
 * https://git.oschina.net/didispace/SpringBoot-Learning
 * http://412887952-qq-com.iteye.com/category/356333
