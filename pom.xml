@@ -26,6 +26,7 @@
         <module>Chapter8-Mybatis-Mutil-Datasource</module>
         <module>Chapter8-Jpa-Mutil-Datasource</module>
         <module>Chapter9-Redis</module>
+        <module>Chapter9-Redis-Cache</module>
         <module>Chapter9-MongoDB</module>
     </modules>
 
@@ -74,12 +75,18 @@
            devtools可以实现页面热部署（即页面修改后会立即生效，这个可以直接在application.properties文件中配置spring.thymeleaf.cache=false来实现），
            实现类文件热部署（类文件修改后不会立即生效），实现对属性文件的热部署。
            即devtools会监听classpath下的文件变动，并且会立即重启应用（发生在保存时机），注意：因为其采用的虚拟机机制，该项重启是很快的
+
+           在使用mybatis mapper插件：mapper-spring-boot-starter 时，需要做如下处理才支持
+            DevTools 默认会对 IDE 中引入的所有项目使用 restart 类加载器，对于引入的 jar 包使用 base 类加载器，因此只要保证通用Mapper的jar包使用 restart 类加载器即可。
+            在 src/main/resources 中创建 META-INF 目录，在此目录下添加 spring-devtools.properties 配置，内容如下：
+            restart.include.mapper=/mapper-[\\w-\\.]+jar
+            restart.include.pagehelper=/pagehelper-[\\w-\\.]+jar
         -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-devtools</artifactId>
-            <optional>true</optional>
-        </dependency>
+        <!--<dependency>-->
+            <!--<groupId>org.springframework.boot</groupId>-->
+            <!--<artifactId>spring-boot-devtools</artifactId>-->
+            <!--<optional>true</optional>-->
+        <!--</dependency>-->
     </dependencies>
 
     <build>

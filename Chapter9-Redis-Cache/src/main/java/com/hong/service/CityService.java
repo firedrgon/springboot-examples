@@ -8,4 +8,10 @@ import com.hong.domain.City;
 public interface CityService {
 
     City findOneCity(Integer id);
+
+    int saveCity(City city);
+
+    int modifyCity(City city);
+
+    int deleteCity(Integer id);
 }
