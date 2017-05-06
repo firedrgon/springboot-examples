@@ -1,4 +1,4 @@
-package com.hong.config;
+package com.hong.commons.config;
 
 
 import org.apache.shiro.spring.web.ShiroFilterFactoryBean;
