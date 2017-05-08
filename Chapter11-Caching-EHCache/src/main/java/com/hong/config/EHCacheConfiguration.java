@@ -2,6 +2,7 @@ package com.hong.config;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.boot.SpringBootConfiguration;
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.cache.ehcache.EhCacheCacheManager;
 import org.springframework.cache.ehcache.EhCacheManagerFactoryBean;
@@ -16,7 +17,7 @@ import org.springframework.core.io.ClassPathResource;
  * @Description: (EHCache 缓存配置.)
  * @date 2017/5/8
  */
-@Configuration
+@SpringBootConfiguration
 /** 启用缓存 **/
 @EnableCaching
 public class EHCacheConfiguration {

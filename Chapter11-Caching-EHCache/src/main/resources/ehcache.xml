@@ -45,7 +45,7 @@
             memoryStoreEvictionPolicy="LRU" />
 
     <cache
-            name="demo"
+            name="studentCache"
             eternal="false"
             maxElementsInMemory="100"
             overflowToDisk="false"
