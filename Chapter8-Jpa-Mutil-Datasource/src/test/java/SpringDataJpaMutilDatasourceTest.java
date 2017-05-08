@@ -24,7 +24,7 @@ import java.util.List;
 
 /**
  * 在1.4中SpringApplicationConfiguration标记为过时了，所以官方就不建议这么使用了，
- * 那么在1.4中单元测试怎么使用呢?
+ * 那么在1.4以后版本中单元测试怎么使用呢?
  * 注解可以在一个测试类指定运行Spring Boot为基础的测试
  * **/
 @SpringBootTest(classes ={Application.class})
