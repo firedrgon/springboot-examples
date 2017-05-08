@@ -29,8 +29,8 @@
         <module>Chapter9-Redis-Cache</module>
         <module>Chapter9-MongoDB</module>
         <module>Chapter9-Redis-Cache</module>
-        <module>Chapter10-Shiro</module>
         <module>Chapter9-Redis-Session</module>
+        <module>Chapter10-Shiro</module>
     </modules>
 
     <properties>
