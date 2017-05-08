@@ -31,6 +31,7 @@
         <module>Chapter9-Redis-Cache</module>
         <module>Chapter9-Redis-Session</module>
         <module>Chapter10-Shiro</module>
+        <module>Chapter11-Caching-EHCache</module>
     </modules>
 
     <properties>
@@ -62,6 +63,11 @@
         </dependency>
 
         <!--引入Web模块-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
