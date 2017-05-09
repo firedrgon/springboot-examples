@@ -25,7 +25,7 @@
 
         <plugin type="tk.mybatis.mapper.generator.MapperPlugin">
             <!-- 配置所有mapper 继承這个公共mapper，以此来使用mapper 基础增删改查API -->
-            <property name="mappers" value="com.hong.commons.util.MyMapper"/>
+            <property name="mappers" value="com.hong.common.util.MyMapper"/>
         </plugin>
 
         <jdbcConnection driverClass="${spring.datasource.driverClassName}"

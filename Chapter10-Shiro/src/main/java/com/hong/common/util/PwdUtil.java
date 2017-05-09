@@ -1,4 +1,4 @@
-package com.hong.commons.util;
+package com.hong.common.util;
 
 import org.apache.shiro.crypto.hash.SimpleHash;
 

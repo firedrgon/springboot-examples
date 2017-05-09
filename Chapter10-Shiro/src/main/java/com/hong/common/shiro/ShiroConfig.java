@@ -1,4 +1,4 @@
-package com.hong.commons.shiro;
+package com.hong.common.shiro;
 
 
 import at.pollux.thymeleaf.shiro.dialect.ShiroDialect;
