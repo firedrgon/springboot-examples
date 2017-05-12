@@ -1,6 +1,6 @@
 package com.hong.web;
 
-import com.hong.commons.util.PwdUtil;
+import com.hong.common.util.PwdUtil;
 import com.hong.domain.User;
 import com.hong.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;

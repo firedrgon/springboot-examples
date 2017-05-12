@@ -1,4 +1,4 @@
-package com.hong.commons.shiro;
+package com.hong.common.shiro;
 
 
 import com.hong.domain.Permission;
