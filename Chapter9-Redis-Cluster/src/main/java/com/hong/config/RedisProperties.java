@@ -12,16 +12,16 @@ import org.springframework.stereotype.Component;
 public class RedisProperties {
 
 
-    private String clusterNodes;
+    private String nodes;
 
     private Integer   commandTimeout;
 
-    public String getClusterNodes() {
-        return clusterNodes;
+    public String getNodes() {
+        return nodes;
     }
 
-    public void setClusterNodes(String clusterNodes) {
-        this.clusterNodes = clusterNodes;
+    public void setNodes(String nodes) {
+        this.nodes = nodes;
     }
 
     public Integer getCommandTimeout() {
