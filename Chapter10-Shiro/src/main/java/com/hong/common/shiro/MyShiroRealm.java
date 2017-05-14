@@ -93,7 +93,7 @@ public class MyShiroRealm extends AuthorizingRealm {
             List<Permission> permissionList = permissionService.getPermissionByUserId(user.getId());
             permissionList.forEach(permission -> permissions.add(permission.getPermissionName()));
 
-            //3. 创建SimpleAuthorizationInfo ,并设置其roles 属性
+            //3. 创建SimpleAuthorizationInfo ,并设置其roles、permissions 属性
             SimpleAuthorizationInfo info = new SimpleAuthorizationInfo();
             //设置角色
             info.setRoles(roles);

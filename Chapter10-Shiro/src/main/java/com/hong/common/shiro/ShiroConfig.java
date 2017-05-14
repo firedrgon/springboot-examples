@@ -92,7 +92,7 @@ public class ShiroConfig {
      * 凭证匹配器.
      * @return
      */
-    @Bean(name="credentialsMatcher")
+    @Bean
     public CredentialsMatcher credentialsMatcher(){
         HashedCredentialsMatcher hashedCredentialsMatcher =new HashedCredentialsMatcher();
         hashedCredentialsMatcher.setHashAlgorithmName("md5");//散列算法:这里使用MD5算法;
@@ -152,7 +152,7 @@ public class ShiroConfig {
         shiroFilterFactoryBean.setLoginUrl("/login");
         // 登录成功后要跳转的链接
         shiroFilterFactoryBean.setSuccessUrl("/index");
-        //未授权界面;
+        // 未授权界面
         shiroFilterFactoryBean.setUnauthorizedUrl("/403");
 
         shiroFilterFactoryBean.setFilterChainDefinitionMap(filterChainDefinitionMap);
