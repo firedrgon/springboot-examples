@@ -5,10 +5,19 @@ import at.pollux.thymeleaf.shiro.dialect.ShiroDialect;
 import org.apache.shiro.authc.credential.CredentialsMatcher;
 import org.apache.shiro.authc.credential.HashedCredentialsMatcher;
 import org.apache.shiro.cache.ehcache.EhCacheManager;
+import org.apache.shiro.session.mgt.DefaultSessionManager;
+import org.apache.shiro.session.mgt.SessionManager;
+import org.apache.shiro.session.mgt.SessionValidationScheduler;
+import org.apache.shiro.session.mgt.ValidatingSessionManager;
+import org.apache.shiro.session.mgt.eis.EnterpriseCacheSessionDAO;
+import org.apache.shiro.session.mgt.eis.JavaUuidSessionIdGenerator;
+import org.apache.shiro.session.mgt.eis.SessionDAO;
+import org.apache.shiro.session.mgt.quartz.QuartzSessionValidationScheduler;
 import org.apache.shiro.spring.LifecycleBeanPostProcessor;
 import org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor;
 import org.apache.shiro.spring.web.ShiroFilterFactoryBean;
 import org.apache.shiro.web.mgt.DefaultWebSecurityManager;
+import org.apache.shiro.web.session.mgt.DefaultWebSessionManager;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator;
@@ -130,13 +139,60 @@ public class ShiroConfig {
 
 
     /**
+     * 会话验证调度器
+     * @return
+     */
+    public SessionValidationScheduler sessionValidationScheduler(){
+        QuartzSessionValidationScheduler sessionValidationScheduler = new QuartzSessionValidationScheduler();
+        sessionValidationScheduler.setSessionValidationInterval(1800000);//毫秒为单位
+//        sessionValidationScheduler.setSessionManager((ValidatingSessionManager) sessionManager());
+        return sessionValidationScheduler;
+    }
+
+
+    /**
+     * 会话DAO
+     * @return
+     */
+    @Bean
+    public SessionDAO sessionDAO(){
+        EnterpriseCacheSessionDAO enterpriseCacheSessionDAO =new EnterpriseCacheSessionDAO();
+        enterpriseCacheSessionDAO.setActiveSessionsCacheName("shiro-activeSessionCache");
+        // 设置会话ID生成器
+        enterpriseCacheSessionDAO.setSessionIdGenerator( new JavaUuidSessionIdGenerator());
+        return enterpriseCacheSessionDAO;
+    }
+
+
+    /**
+     * 会话管理器.
+     * 会话管理器管理着应用中所有Subject的会话的创建、维护、删除、失效、验证等工作
+     *
+     * @return
+     */
+    public SessionManager sessionManager(){
+        DefaultWebSessionManager sessionManager =new DefaultWebSessionManager();
+        sessionManager.setGlobalSessionTimeout(1800000);//毫秒为单位
+        sessionManager.setDeleteInvalidSessions(true);
+        sessionManager.setSessionValidationSchedulerEnabled(true);
+        sessionManager.setSessionValidationScheduler(sessionValidationScheduler());
+        sessionManager.setSessionDAO(sessionDAO());
+        return  sessionManager;
+    }
+
+
+
+    /**
      * 安全管理器.
      * @return
      */
     @Bean
     public DefaultWebSecurityManager securityManager(){
         DefaultWebSecurityManager securityManager =  new DefaultWebSecurityManager();
+        // 设置认证授权Realm
         securityManager.setRealm(myShiroRealm());
+        // 替换SecurityManager默认的SessionManager
+        securityManager.setSessionManager(sessionManager());
         return securityManager;
     }
 

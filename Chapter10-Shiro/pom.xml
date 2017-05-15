@@ -35,6 +35,12 @@
             <version>1.2.2</version>
         </dependency>
 
+        <dependency>
+            <groupId>org.apache.shiro</groupId>
+            <artifactId>shiro-quartz</artifactId>
+            <version>1.2.2</version>
+        </dependency>
+
         <!-- 在Thymeleaf模板引擎中集成Shiro -->
         <dependency>
             <groupId>com.github.theborakompanioni</groupId>

@@ -53,7 +53,7 @@ public class MyShiroRealm extends AuthorizingRealm {
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken authenticationToken) throws AuthenticationException {
         logger.info("MyShiroRealm.doGetAuthorizationInfo()...");
 
-        //1. 把这个类型的authenticationToken 转换成UsernamePasswordToken 。
+        // 把这个类型的authenticationToken 转换成UsernamePasswordToken 。
         UsernamePasswordToken token = (UsernamePasswordToken) authenticationToken;
 
         User user = userService.findUserByName(token.getUsername());

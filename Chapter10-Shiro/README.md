@@ -7,7 +7,7 @@
       * 第一就是ShiroFilterFactory
       * 第二就是SecurityManager
    
-   *  注入Shiro Factory和SecurityManager。 
+   *  注入Shiro Factory和SecurityManager.
    
    *  身份认证
    
