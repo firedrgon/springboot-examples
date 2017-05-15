@@ -22,7 +22,7 @@ public class RegisterController {
     @ResponseBody
     private int registerUser(User user){
         //注册时对密码加密 ,使用md5 1024次 和盐值username 加密
-        user.setPassword(PwdUtil.createMD5(user.getPassword(),user.getUsername()).toString());
+        user.setPassword(PwdUtil.createMD5Credentials(user.getPassword(),user.getUsername()).toString());
         return userService.save(user);
     }
 }
