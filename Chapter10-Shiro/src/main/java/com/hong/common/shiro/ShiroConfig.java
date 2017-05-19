@@ -2,6 +2,7 @@ package com.hong.common.shiro;
 
 
 import at.pollux.thymeleaf.shiro.dialect.ShiroDialect;
+import com.hong.common.filter.LoginFilter;
 import org.apache.shiro.authc.credential.CredentialsMatcher;
 import org.apache.shiro.authc.credential.HashedCredentialsMatcher;
 import org.apache.shiro.cache.ehcache.EhCacheManager;
@@ -25,6 +26,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.DependsOn;
 
+import javax.servlet.Filter;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
@@ -142,12 +144,12 @@ public class ShiroConfig {
      * 会话验证调度器
      * @return
      */
-    public SessionValidationScheduler sessionValidationScheduler(){
-        QuartzSessionValidationScheduler sessionValidationScheduler = new QuartzSessionValidationScheduler();
-        sessionValidationScheduler.setSessionValidationInterval(1800000);//毫秒为单位
+//    public SessionValidationScheduler sessionValidationScheduler(){
+//        QuartzSessionValidationScheduler sessionValidationScheduler = new QuartzSessionValidationScheduler();
+//        sessionValidationScheduler.setSessionValidationInterval(1800000);//毫秒为单位
 //        sessionValidationScheduler.setSessionManager((ValidatingSessionManager) sessionManager());
-        return sessionValidationScheduler;
-    }
+//        return sessionValidationScheduler;
+//    }
 
 
     /**
@@ -175,7 +177,7 @@ public class ShiroConfig {
         sessionManager.setGlobalSessionTimeout(1800000);//毫秒为单位
         sessionManager.setDeleteInvalidSessions(true);
         sessionManager.setSessionValidationSchedulerEnabled(true);
-        sessionManager.setSessionValidationScheduler(sessionValidationScheduler());
+//        sessionManager.setSessionValidationScheduler(sessionValidationScheduler());
         sessionManager.setSessionDAO(sessionDAO());
         return  sessionManager;
     }
@@ -213,28 +215,37 @@ public class ShiroConfig {
     public ShiroFilterFactoryBean shiroFilter(DefaultWebSecurityManager securityManager){
         logger.info("ShiroConfig.shiroFilter()");
         ShiroFilterFactoryBean shiroFilterFactoryBean  = new ShiroFilterFactoryBean();
-
         // 必须设置 SecurityManager
         shiroFilterFactoryBean.setSecurityManager(securityManager);
 
-        //拦截器.
+        // 设置几个默认的访问地址
+        // 如果不设置默认会自动寻找Web工程根目录下的"/login.jsp"页面
+        shiroFilterFactoryBean.setLoginUrl("/loginView");
+        // 登录成功后要跳转的链接
+        shiroFilterFactoryBean.setSuccessUrl("/index");
+        // 未授权界面
+        shiroFilterFactoryBean.setUnauthorizedUrl("/403");
+
+
+        // 设置默认拦截器.
         Map<String,String> filterChainDefinitionMap = new LinkedHashMap<String,String>();
 
         //配置退出过滤器,其中的具体的退出代码Shiro已经替我们实现了
         filterChainDefinitionMap.put("/logout", "logout");
         filterChainDefinitionMap.put("/user","anon");
-        filterChainDefinitionMap.put("/login","anon");
+        filterChainDefinitionMap.put("/login","anon,login");
 
         //<!-- 过滤链定义，从上向下顺序执行，一般将 /**放在最为下边 -->:这是一个坑呢，一不小心代码就不好使了;
         //<!-- authc:所有url都必须认证通过才可以访问; anon:所有url都都可以匿名访问-->
         filterChainDefinitionMap.put("/**", "authc");
 
-        // 如果不设置默认会自动寻找Web工程根目录下的"/login.jsp"页面
-        shiroFilterFactoryBean.setLoginUrl("/login");
-        // 登录成功后要跳转的链接
-        shiroFilterFactoryBean.setSuccessUrl("/index");
-        // 未授权界面
-        shiroFilterFactoryBean.setUnauthorizedUrl("/403");
+        // 设置自定义拦截器
+        // 使用linkedHashMap 保证设置filter 的顺序
+        Map<String, Filter> filters = new LinkedHashMap<>();
+        LoginFilter loginFilter=new LoginFilter();
+        filters.put("login",loginFilter);
+        shiroFilterFactoryBean.setFilters(filters);
+
 
         shiroFilterFactoryBean.setFilterChainDefinitionMap(filterChainDefinitionMap);
         return shiroFilterFactoryBean;

@@ -36,7 +36,7 @@ public class HomeController {
      * 默认登录页面
      * @return
      */
-    @GetMapping("/login")
+    @GetMapping("/loginView")
     public String login(Model model){
         model.addAttribute("user", new User());
         return "login";
