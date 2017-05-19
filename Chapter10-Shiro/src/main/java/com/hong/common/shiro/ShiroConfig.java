@@ -173,6 +173,7 @@ public class ShiroConfig {
      * @return
      */
     public SessionManager sessionManager(){
+        // 用于Web环境的实现，可以替代ServletContainerSessionManager，自己维护着会话，直接废弃了Servlet容器的会话管理。
         DefaultWebSessionManager sessionManager =new DefaultWebSessionManager();
         sessionManager.setGlobalSessionTimeout(1800000);//毫秒为单位
         sessionManager.setDeleteInvalidSessions(true);
