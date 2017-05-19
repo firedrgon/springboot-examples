@@ -33,6 +33,7 @@
         <module>Chapter9-Redis-Session</module>
         <module>Chapter10-Shiro</module>
         <module>Chapter11-Caching-EHCache</module>
+        <module>Chapter6-Aop-Log</module>
     </modules>
 
     <properties>
@@ -54,6 +55,12 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-logging</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
 
         <!-- 测试模块，包括JUnit、Hamcrest、Mockito -->
