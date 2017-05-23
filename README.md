@@ -3,16 +3,16 @@ spring boot 学习系列 (使用版本 1.5.3)
 
 
 ###后续计划...
-nosql系列：
+>nosql系列：
          - MongoDB
          - memcached
          - Elasticsearch
          - Solr
-缓存系列：
+>缓存系列：
          - annotation-redis-cache
-权限系列：
+>权限系列：
          - OAuth2
-日志系列：
+>日志系列：
          - Log4J2
          - Logback  
 Message......          
