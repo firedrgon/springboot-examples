@@ -3,12 +3,10 @@ package com.hong.aspect;
 import org.apache.tomcat.util.http.fileupload.RequestContext;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
-import org.aspectj.lang.annotation.Around;
-import org.aspectj.lang.annotation.Aspect;
-import org.aspectj.lang.annotation.Before;
-import org.aspectj.lang.annotation.Pointcut;
+import org.aspectj.lang.annotation.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.context.request.RequestAttributes;
@@ -17,12 +15,18 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.Arrays;
+import java.util.Date;
+import java.util.stream.Stream;
 
 /**
  * 日志切面类.
  * Created by hong on 2017/5/19.
  */
 
+/**
+ * 可以使用@Order注解指定切面的优先级，值越小优先级越高
+ **/
+@Order(2)
 /**
  * 注解将一个java类定义为切面类
  **/
@@ -31,8 +35,6 @@ import java.util.Arrays;
 public class WebLogAspect {
 
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
-
-
 
 
     /**
@@ -73,34 +75,78 @@ public class WebLogAspect {
         logger.info("HTTP_METHOD : " + request.getMethod());
         logger.info("IP : " + request.getLocalAddr());
         logger.info("CLASS_METHOD : " + joinPoint.getSignature().getDeclaringTypeName() + "." + joinPoint.getSignature().getName());
+    }
+
+    /**
+     * 后置通知
+     */
+    @After("webLog()")
+    public void after(JoinPoint joinPoint) {
+        logger.info("==========执行 weblog() 切入点 后置通知===============");
         logger.info("PARAM : " + Arrays.toString(joinPoint.getArgs()));
     }
 
 
     /**
      * 环绕通知 用来监控目标执行前后情况（例如：用来监控切入点执行时间）.
+     * 注: 在使用@Around 时,需要有返回值,不然同时使用 @AfterReturning 获取不到返回参数 .
+     * 环绕通知需要携带ProceedingJoinPoint类型的参数
+     *
      * @param joinPoint
      */
-    @Around("webLog()")
-    public void around(JoinPoint joinPoint) {
-        logger.info("[==========开始 weblog() 切入点 环绕通知===============]");
+//    @Around("webLog()")
+//    public Object around(ProceedingJoinPoint joinPoint) {
+//        logger.info("[==========开始 weblog() 切入点 环绕通知===============]");
+//
+//        long start = System.currentTimeMillis();
+//        Object ret = null;
+//        try {
+//            // 环绕通知 ProceedingJoinPoint 执行proceed方法的作用是让目标方法执行
+//            // 环绕通知=前置+目标方法执行+后置通知，proceed方法就是用于启动目标方法执行的
+//            // 也就是说，环绕通知可以用来代替同时使用前置、后置通知的情况
+//            ret = joinPoint.proceed();
+//            long end = System.currentTimeMillis();
+//
+//            // 其作用是因为Debug,Info和Trace一般会打印比较详细的信息，而且打印的次数较多，如果我们不加log.isDebugEnabled()等
+//            // 进行预先判断，当系统loglevel设置高于Debug或Info或Trace时，虽然系统不会打应出这些级别的日志，但是每次预先拼接log打印中的参数字符串，影响系统的性能。
+//            if (logger.isInfoEnabled()) {
+//                logger.info("监控到========= " + joinPoint.getSignature().getDeclaringTypeName() + "." + joinPoint.getSignature().getName() + "执行时间：" + (end - start) + "ms!");
+//            }
+//            logger.info("[==========结束 weblog() 切入点 环绕通知===============]");
+//        } catch (Throwable throwable) {
+//            throwable.printStackTrace();
+//        }
+//
+//        return ret;
+//    }
 
-        long start = System.currentTimeMillis();
-        try {
-            // 环绕通知 ProceedingJoinPoint 执行proceed方法的作用是让目标方法执行
-            // 环绕通知=前置+目标方法执行+后置通知，proceed方法就是用于启动目标方法执行的
-            // 也就是说，环绕通知可以用来代替同时使用前置、后置通知的情况
-            ((ProceedingJoinPoint) joinPoint).proceed();
-            long end = System.currentTimeMillis();
 
-            // 其作用是因为Debug,Info和Trace一般会打印比较详细的信息，而且打印的次数较多，如果我们不加log.isDebugEnabled()等
-            // 进行预先判断，当系统loglevel设置高于Debug或Info或Trace时，虽然系统不会打应出这些级别的日志，但是每次预先拼接log打印中的参数字符串，影响系统的性能。
-            if(logger.isInfoEnabled()){
-                logger.info("监控到========= "+joinPoint.getSignature().getDeclaringTypeName() + "." + joinPoint.getSignature().getName()+ "执行时间："+(end-start)+"ms!");
-            }
-            logger.info("[==========结束 weblog() 切入点 环绕通知===============]");
-        } catch (Throwable throwable) {
-            throwable.printStackTrace();
-        }
+    /**
+     * 后置返回通知 用来监控返回值
+     */
+    @AfterReturning(pointcut = "webLog()", returning = "ret")
+    public void afterReturn(JoinPoint joinPoint, Object ret) {
+        logger.info("==========开始 weblog() 切入点 环绕通知===============");
+        logger.info("==========开始 weblog() 切入点 环绕通知===============");
+        logger.info("=========监控到 " + joinPoint.getSignature().getDeclaringTypeName() + "." + joinPoint.getSignature().getName() + "返回的值：");
+        logger.info(ret.toString());
     }
+
+
+    /**
+     * 异常通知 用于拦截异常,记录日志
+     *
+     * @param joinPoint
+     * @param ex
+     */
+    @AfterThrowing(pointcut = "webLog()", throwing = "ex")
+    public void AfterThrowing(JoinPoint joinPoint, Throwable ex) {
+        logger.info("==========开始 weblog() 切入点 异常通知===============");
+        logger.info("=========监控到 " + joinPoint.getSignature().getDeclaringTypeName() + "." + joinPoint.getSignature().getName());
+        logger.info("发生异常: " + ex.getMessage());
+        logger.info("请求参数: ");
+        Stream.of(joinPoint.getArgs()).forEach(arg -> logger.info(arg.toString()));
+        logger.info("异常时间: " + new Date());
+    }
+
 }
