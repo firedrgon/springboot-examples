@@ -34,6 +34,7 @@
         <module>Chapter10-Shiro</module>
         <module>Chapter11-Caching-EHCache</module>
         <module>Chapter6-Aop-Log</module>
+        <module>Chapter12-RocketMQ</module>
     </modules>
 
     <properties>
@@ -55,6 +56,7 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter</artifactId>
+            <!--   Spring Boot在所有内部日志中使用Commons Logging,我们其使用其他日志时，需要在spring-boot-starter依赖上 exclusions来排除不需要的依赖。-->
             <exclusions>
                 <exclusion>
                     <groupId>org.springframework.boot</groupId>
