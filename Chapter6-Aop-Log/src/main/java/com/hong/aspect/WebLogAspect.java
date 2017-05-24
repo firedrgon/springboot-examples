@@ -36,7 +36,6 @@ public class WebLogAspect {
 
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
-
     /**
      * 根据需要在切入点不同位置的切入内容:
      *     使用 @Before 在切入点开始处切入内容 ( 前置通知 )
