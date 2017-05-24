@@ -13,7 +13,6 @@ import org.springframework.stereotype.Component;
  * Created by hong on 2017/5/24.
  */
 @Configuration
-@Component
 public class MyProducer {
 
     @Autowired

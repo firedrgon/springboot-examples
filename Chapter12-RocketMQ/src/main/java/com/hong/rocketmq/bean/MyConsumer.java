@@ -21,7 +21,6 @@ import java.util.List;
  * Created by hong on 2017/5/24.
  */
 @Configuration
-@Component
 public class MyConsumer {
 
     @Autowired
