@@ -27,7 +27,6 @@
         <module>Chapter8-Jpa-Mutil-Datasource</module>
         <module>Chapter9-Redis</module>
         <module>Chapter9-Redis-Cache</module>
-        <module>Chapter9-MongoDB</module>
         <module>Chapter9-Redis-Cache</module>
         <module>Chapter9-Redis-Cluster</module>
         <module>Chapter9-Redis-Session</module>
