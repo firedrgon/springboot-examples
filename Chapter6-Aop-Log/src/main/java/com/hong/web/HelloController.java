@@ -12,7 +12,12 @@ public class HelloController {
 
 
     @GetMapping("/hello")
-    public String hello(@RequestParam(name = "name",defaultValue = "张三") String name){
-        return "hello"+name;
+    public String hello(@RequestParam(name = "name", defaultValue = "张三") String name) {
+        //假设出现异常
+//        int s=1/0;
+        if (true) {
+            throw new IllegalArgumentException("name参数的长度必须大于3，小于10！");
+        }
+        return "hello" + name;
     }
 }
