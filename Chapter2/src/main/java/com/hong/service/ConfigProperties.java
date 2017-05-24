@@ -20,6 +20,8 @@ import java.util.List;
 /**
   当我们不是使用的默认的application.properties文件时，需要locations指定了我们要使用的配置文件路径和名称，
   可以这么定义：ConfigurationProperties(locations="classpath:config/company.properties")。
+  1.5.x 不再这么支持，请使用
+ @PropertySource(ignoreResourceNotFound = true, value = "classpath:conf/application.properties")
  **/
 public class ConfigProperties {
 
