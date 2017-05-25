@@ -21,3 +21,4 @@ spring boot 学习系列 (使用版本 1.5.3)
 * https://git.oschina.net/didispace/SpringBoot-Learning
 * http://412887952-qq-com.iteye.com/category/356333
 * https://git.oschina.net/jeff1993/springboot-learning-example
+* http://blog.csdn.net/column/details/spring-boot.html
