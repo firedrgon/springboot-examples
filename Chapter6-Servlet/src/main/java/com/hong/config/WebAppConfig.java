@@ -7,7 +7,9 @@ import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
 /**
- * Web 适配器，用于注册一些与web相关的参数和元素.
+ *  Web 适配器，用于配置一些与web相关的各种属性.
+ *  默认情况下Spring Boot 使用WebMvcAutoConfiguration中配置的各种属性
+ *
  * Created by hong on 2017/5/25.
  */
 @Configuration
