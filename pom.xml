@@ -34,6 +34,7 @@
         <module>Chapter11-Caching-EHCache</module>
         <module>Chapter6-Aop-Log</module>
         <module>Chapter12-RocketMQ</module>
+        <module>Chapter6-Servlet</module>
     </modules>
 
     <properties>
