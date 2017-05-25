@@ -5,6 +5,7 @@ import org.apache.rocketmq.common.message.MessageExt;
 import org.springframework.context.ApplicationEvent;
 
 /**
+ * 自定义一个事件对象，用于监听器来监听消费者变化
  * Created by hong on 2017/5/24.
  */
 public class RocketMQEvent extends ApplicationEvent {
