@@ -10,6 +10,7 @@ import org.springframework.boot.web.servlet.ServletComponentScan;
 import org.springframework.boot.web.servlet.ServletListenerRegistrationBean;
 import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.context.annotation.Bean;
+import org.springframework.web.servlet.DispatcherServlet;
 
 import javax.servlet.ServletContextListener;
 
@@ -47,7 +48,19 @@ public class Application {
 //        return new ServletListenerRegistrationBean(new MyServletContextListener());
 //    }
 
-
+//    /**
+//     * 修改DispatcherServlet默认配置
+//     * @param dispatcherServlet
+//     * @return
+//     */
+//    @Bean
+//    public ServletRegistrationBean dispatcherRegistration(DispatcherServlet dispatcherServlet) {
+//        ServletRegistrationBean registration = new ServletRegistrationBean(dispatcherServlet);
+//        registration.getUrlMappings().clear();
+//        registration.addUrlMappings("*.do");
+//        registration.addUrlMappings("*.json");
+//        return registration;
+//    }
 
     public static void main(String[] args) {
         SpringApplication.run(Application.class, args);

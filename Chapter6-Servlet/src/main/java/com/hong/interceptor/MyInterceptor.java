@@ -29,7 +29,7 @@ public class MyInterceptor implements HandlerInterceptor {
      *  5、OpenSessionInView：如Hibernate，在进入处理器打开Session，在完成后关闭Session。
      *  …………本质也是AOP（面向切面编程），也就是说符合横切关注点的所有功能都可以放入拦截器实现
      *
-     *  spring boot拦截器默认有
+     *  spring boot拦截器默认主要有
      *    - HandlerInterceptorAdapter
      *    - AbstractHandlerMapping
      *    - UserRoleAuthorizationInterceptor
