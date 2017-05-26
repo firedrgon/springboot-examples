@@ -18,6 +18,7 @@
         <module>Chapter4-jsp</module>
         <module>Chapter5-swagger</module>
         <module>Chapter6-handleException</module>
+        <module>Chapter6-Aop-Log</module>
         <module>Chapter7-Spring-Data-Jpa</module>
         <module>Chapter7-JdbcTemplate</module>
         <module>Chapter7-Mybatis</module>
@@ -27,12 +28,10 @@
         <module>Chapter8-Jpa-Mutil-Datasource</module>
         <module>Chapter9-Redis</module>
         <module>Chapter9-Redis-Cache</module>
-        <module>Chapter9-Redis-Cache</module>
         <module>Chapter9-Redis-Cluster</module>
         <module>Chapter9-Redis-Session</module>
         <module>Chapter10-Shiro</module>
         <module>Chapter11-Caching-EHCache</module>
-        <module>Chapter6-Aop-Log</module>
         <module>Chapter12-RocketMQ</module>
         <module>Chapter6-Servlet</module>
     </modules>
@@ -48,7 +47,7 @@
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>1.5.3.RELEASE</version>
-        <relativePath/> <!-- lookup parent from repository -->
+        <!-- <relativePath/>  lookup parent from repository -->
     </parent>
 
     <dependencies>
