@@ -9,32 +9,32 @@
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
     <modules>
-        <module>Chapter1</module>
-        <module>Chapter2</module>
-        <module>Chapter3</module>
-        <module>Chapter3-Jersey</module>
-        <module>Chapter4-Thymeleaf</module>
-        <module>Chapter4-freemarker</module>
-        <module>Chapter4-velocity</module>
-        <module>Chapter4-jsp</module>
-        <module>Chapter5-swagger</module>
-        <module>Chapter6-handleException</module>
-        <module>Chapter6-Aop-Log</module>
-        <module>Chapter7-Spring-Data-Jpa</module>
-        <module>Chapter7-JdbcTemplate</module>
-        <module>Chapter7-Mybatis</module>
-        <module>Chapter7-Mybatis-Mapper-Plugin</module>
-        <module>Chapter8-JdbcTemplate-Mutil-Datasource</module>
-        <module>Chapter8-Mybatis-Mutil-Datasource</module>
-        <module>Chapter8-Jpa-Mutil-Datasource</module>
-        <module>Chapter9-Redis</module>
-        <module>Chapter9-Redis-Cache</module>
-        <module>Chapter9-Redis-Cluster</module>
-        <module>Chapter9-Redis-Session</module>
-        <module>Chapter10-Shiro</module>
-        <module>Chapter11-Caching-EHCache</module>
-        <module>Chapter12-RocketMQ</module>
-        <module>Chapter6-Servlet</module>
+        <module>chapter1</module>
+        <module>chapter2</module>
+        <module>chapter3</module>
+        <module>chapter3-jersey</module>
+        <module>chapter4-thymeleaf</module>
+        <module>chapter4-freemarker</module>
+        <module>chapter4-velocity</module>
+        <module>chapter4-jsp</module>
+        <module>chapter5-swagger</module>
+        <module>chapter6-handle-exception</module>
+        <module>chapter6-aop-log</module>
+        <module>chapter7-spring-data-jpa</module>
+        <module>chapter7-jdbctemplate</module>
+        <module>chapter7-mybatis</module>
+        <module>chapter7-mybatis-mapper-plugin</module>
+        <module>chapter8-jdbctemplate-mutil-datasource</module>
+        <module>chapter8-mybatis-mutil-datasource</module>
+        <module>chapter8-jpa-mutil-datasource</module>
+        <module>chapter9-redis</module>
+        <module>chapter9-redis-cache</module>
+        <module>chapter9-redis-cluster</module>
+        <module>chapter9-redis-session</module>
+        <module>chapter10-shiro</module>
+        <module>chapter11-caching-ehcache</module>
+        <module>chapter12-rocketmq</module>
+        <module>chapter6-servlet</module>
     </modules>
 
     <properties>
