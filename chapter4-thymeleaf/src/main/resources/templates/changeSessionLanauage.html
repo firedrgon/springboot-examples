@@ -1,0 +1,23 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>切换当前语言环境</title>
+
+    <!--【切换为中文】、【切换为英文】-->
+</head>
+
+<body>
+    <form th:action="@{/changeLocal}" method="get">
+        <input name="lang" type="hidden" value="zh"  />
+        <button>切换为中文</button>
+    </form>
+
+    <form th:action="@{/changeLocal}" method="get">
+        <input name="lang" type="hidden" value="en" />
+        <button>切换为英文</button>
+    </form>
+
+    <span th:text="#{welcome}"></span>
+</body>
+</html>
