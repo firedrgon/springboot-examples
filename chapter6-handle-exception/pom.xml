@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>Chapter6-handleException</artifactId>
+    <artifactId>chapter6-handle-exception</artifactId>
 
 
     <dependencies>
