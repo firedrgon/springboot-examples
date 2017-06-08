@@ -19,6 +19,7 @@
         <module>chapter4-jsp</module>
         <module>chapter5-swagger</module>
         <module>chapter6-handle-exception</module>
+        <module>chapter6-servlet</module>
         <module>chapter6-aop-log</module>
         <module>chapter7-spring-data-jpa</module>
         <module>chapter7-jdbctemplate</module>
@@ -31,10 +32,10 @@
         <module>chapter9-redis-cache</module>
         <module>chapter9-redis-cluster</module>
         <module>chapter9-redis-session</module>
+        <module>chapter10-jwt</module>
         <module>chapter10-shiro</module>
         <module>chapter11-caching-ehcache</module>
         <module>chapter12-rocketmq</module>
-        <module>chapter6-servlet</module>
     </modules>
 
     <properties>
