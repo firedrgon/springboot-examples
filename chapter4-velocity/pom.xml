@@ -14,7 +14,7 @@
 
     <dependencies>
         <!-- 引入velocity的依赖包-->
-        <!-- spring boot 1.5.x 默认不再支持，需要手动处理 -->
+        <!-- spring boot 1.5.x 默认不再支持，需要手动将spring boot 依赖版本下降到1.4.x左右 测试 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-velocity</artifactId>
