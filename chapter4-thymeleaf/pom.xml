@@ -8,8 +8,15 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-
     <artifactId>chapter4-thymeleaf</artifactId>
+
+    <!-- 注意：需要配置thymeleaf 版本，spring boot 默认使用的Thymeleaf 2.1，
+         而当前SpringBoot版本(我的是1.5.3)不支持该版本的Thymeleaf，手动修改为Thymeleaf 3.0.2的版本。
+     -->
+    <properties>
+        <thymeleaf.version> 3.0.2.RELEASE </thymeleaf.version>
+        <thymeleaf-layout-dialect.version> 2.1.1 </thymeleaf-layout-dialect.version>
+    </properties>
 
     <dependencies>
 
@@ -18,6 +25,8 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-thymeleaf</artifactId>
         </dependency>
+
+
     </dependencies>
 
 </project>

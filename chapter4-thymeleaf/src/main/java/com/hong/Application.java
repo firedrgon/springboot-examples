@@ -2,9 +2,15 @@ package com.hong;
 
 
 import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.boot.web.support.SpringBootServletInitializer;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.LocaleResolver;
+import org.springframework.web.servlet.i18n.CookieLocaleResolver;
+import org.springframework.web.servlet.i18n.FixedLocaleResolver;
 import org.springframework.web.servlet.i18n.SessionLocaleResolver;
 
 import java.util.Locale;
@@ -16,8 +22,10 @@ import java.util.Locale;
  * @date 2017/4/20
  * @version v1.1
  */
+//@Configuration
 @SpringBootApplication
 public class Application {
+
 
     public static void main(String[] args) {
         SpringApplication.run(Application.class,args);
@@ -28,13 +36,13 @@ public class Application {
      * 会话区域解析器之SessionLocaleResolver；
      * @return
      */
-    @Bean
-    public LocaleResolver localeResolver() {
-        SessionLocaleResolver slr = new SessionLocaleResolver();
-        //设置默认区域  Locale.US  Locale.CHINA ...
-        slr.setDefaultLocale(Locale.CHINA);
-        return slr;
-    }
+//    @Bean
+//    public LocaleResolver localeResolver() {
+//        SessionLocaleResolver slr = new SessionLocaleResolver();
+//        //设置默认区域  Locale.US  Locale.CHINA ...
+//        slr.setDefaultLocale(Locale.CHINA);
+//        return slr;
+//    }
 
     /**
      * Cookie区域解析器之CookieLocaleResolver；
