@@ -12,4 +12,14 @@
     <artifactId>chapter10-jwt</artifactId>
 
 
+    <dependencies>
+
+        <!-- jwt 库相关依赖.  -->
+       <dependency>
+            <groupId>com.auth0</groupId>
+            <artifactId>java-jwt</artifactId>
+            <version>3.2.0</version>
+        </dependency>
+    </dependencies>
+
 </project>
