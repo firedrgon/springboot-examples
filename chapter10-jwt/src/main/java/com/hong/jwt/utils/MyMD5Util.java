@@ -53,8 +53,7 @@ public class MyMD5Util {
      * @param password
      * @return
      */
-    public static String MD5(String password,String salt) {
-        if(StringUtils.isEmpty(salt)) {
+    public static String MD5Salt(String password) {
             Random r = new Random();
             StringBuilder sb = new StringBuilder(16);
             sb.append(r.nextInt(99999999)).append(r.nextInt(99999999));
@@ -64,11 +63,10 @@ public class MyMD5Util {
                     sb.append("0");
                 }
             }
-            salt = sb.toString();
-        }
+        String salt = sb.toString();
         password = md5Hex(password + salt);
-        char[] cs = new char[32];
-        for (int i = 0; i < 32; i += 3) {
+        char[] cs = new char[48];
+        for (int i = 0; i < 48; i += 3) {
             cs[i] = password.charAt(i / 3 * 2);
             char c = salt.charAt(i / 3);
             cs[i + 1] = c;

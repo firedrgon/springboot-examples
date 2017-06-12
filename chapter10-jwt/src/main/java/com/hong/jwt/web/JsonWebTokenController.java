@@ -24,9 +24,8 @@ public class JsonWebTokenController {
     private JwtHelper jwtHelper;
 
     @RequestMapping(value = "/token")
-    public JSONObject getAccessToken(LoginInfo loginInfo,Device device) {
+    public JSONObject getAccessToken(LoginInfo loginInfo, Device device) {
         JSONObject resultMsg = new JSONObject();
-        UserInfoEnum userInfoEnum = null;
         try {
             if (loginInfo.getClientId() == null) {
                 resultMsg.put("errcode", 500);
@@ -49,19 +48,28 @@ public class JsonWebTokenController {
             //2.用户存在,验证密码.
             else {
                 // 获取用户登录md5加密后的密码.
-                String loginMD5Password = MyMD5Util.MD5(loginInfo.getPassword(), loginInfo.getUsername());
+                String loginMD5Password = MyMD5Util.MD5(loginInfo.getPassword());
 
                 // 获取匹配的密码.
-                userInfoEnum = UserInfoEnum.valueOf(loginInfo.getUsername());
-                String userMD5Password = MyMD5Util.MD5(userInfoEnum.getPassword(), loginInfo.getPassword());
-
+                String password = null;
+                switch (loginInfo.getUsername()) {
+                    case "admin":
+                        password = UserInfoEnum.ADMIN.getPassword();
+                        break;
+                    case "test":
+                        password = UserInfoEnum.TEST.getPassword();
+                        break;
+                    case "zhangsan":
+                        password = UserInfoEnum.ZHANGSAN.getPassword();
+                        break;
+                }
+                String userMD5Password = MyMD5Util.MD5(password);
                 if (!loginMD5Password.equals(userMD5Password)) {
                     resultMsg.put("result_code", 500);
                     resultMsg.put("msg", "password error!");
                     return resultMsg;
                 }
             }
-
 
             //拼装accessToken
             String accessToken = jwtHelper.createJWT(loginInfo.getUsername(), device);
@@ -72,15 +80,15 @@ public class JsonWebTokenController {
             accessTokenEntity.setExpiresIn(jwtHelper.getExpiration());
             accessTokenEntity.setTokenType("bearer");
 
-            resultMsg.put("result_code",200);
-            resultMsg.put("msg","token");
-            resultMsg.put("token",accessToken);
+            resultMsg.put("result_code", 200);
+            resultMsg.put("msg", "success");
+            resultMsg.put("token", accessToken);
             return resultMsg;
 
         } catch (Exception ex) {
             System.out.println(ex);
-            resultMsg.put("result_code",500);
-            resultMsg.put("msg","other error");
+            resultMsg.put("result_code", 500);
+            resultMsg.put("msg", "other error");
             return resultMsg;
         }
     }
