@@ -6,6 +6,8 @@ import com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.web.HttpMessageConverters;
 import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.boot.web.servlet.FilterRegistrationBean;
+import org.springframework.boot.web.servlet.ServletComponentScan;
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.MediaType;
 import org.springframework.http.converter.HttpMessageConverter;
@@ -17,11 +19,13 @@ import java.util.List;
  * Created by hong on 2017/6/9.
  */
 @SpringBootApplication
+@ServletComponentScan
 public class Application {
 
     public static void main(String[] args) {
         new SpringApplicationBuilder(Application.class).web(true).run(args);
     }
+
 
     /**
      * 1.需要定义一个convert转换消息的对象

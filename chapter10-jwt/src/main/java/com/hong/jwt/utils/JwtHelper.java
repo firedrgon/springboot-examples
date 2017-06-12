@@ -1,5 +1,6 @@
 package com.hong.jwt.utils;
 
+import com.hong.jwt.domain.LoginInfo;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
@@ -7,6 +8,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.mobile.device.Device;
 import org.springframework.stereotype.Component;
 
+import javax.xml.bind.DatatypeConverter;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -35,6 +37,34 @@ public class JwtHelper {
     @Value("${jwt.expiration}")
     private Long expiration;
 
+    public String getSecret() {
+        return secret;
+    }
+
+    public void setSecret(String secret) {
+        this.secret = secret;
+    }
+
+    public Long getExpiration() {
+        return expiration;
+    }
+
+    public void setExpiration(Long expiration) {
+        this.expiration = expiration;
+    }
+
+    public  Claims getClaimsFromToken(String token){
+        Claims claims;
+        try {
+            claims = Jwts.parser()
+                    .setSigningKey(secret)
+                    .parseClaimsJws(token)
+                    .getBody();
+        } catch (Exception e) {
+            claims = null;
+        }
+        return claims;
+    }
 
     public  String createJWT(String username, Device device) {
         Map<String, Object> claims = new HashMap<>();
@@ -74,19 +104,46 @@ public class JwtHelper {
         return audience;
     }
 
-    public String getSecret() {
-        return secret;
+    public String getUsernameFromToken(String authToken) {
+        String username;
+        try {
+            final Claims claims = getClaimsFromToken(authToken);
+            username = claims.getSubject();
+        } catch (Exception e) {
+            username = null;
+        }
+        return username;
     }
 
-    public void setSecret(String secret) {
-        this.secret = secret;
+
+    private Boolean isTokenExpired(String token) {
+        final Date expiration = getExpirationDateFromToken(token);
+        return expiration.before(new Date());
     }
 
-    public Long getExpiration() {
+
+    public Date getExpirationDateFromToken(String token) {
+        Date expiration;
+        try {
+            final Claims claims = getClaimsFromToken(token);
+            expiration = claims.getExpiration();
+        } catch (Exception e) {
+            expiration = null;
+        }
         return expiration;
     }
 
-    public void setExpiration(Long expiration) {
-        this.expiration = expiration;
+
+
+
+
+    public Boolean validateToken(String token, LoginInfo loginInfo) {
+        //1.校验签名是否正确
+        //2.token是否过期
+        //......
+        final String username = getUsernameFromToken(token);
+        return (
+                username.equals(loginInfo.getUsername())
+                        && !isTokenExpired(token));
     }
 }

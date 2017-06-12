@@ -5,11 +5,20 @@ package com.hong.jwt.domain;
  */
 public class LoginInfo {
 
+    private int id;
     private String clientId;
     private String username;
     private String password;
     private String captchaCode;
     private String captchaValue;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getClientId() {
         return clientId;

@@ -13,6 +13,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 /**
  * Created by hong on 2017/6/11.
  */
@@ -24,7 +28,7 @@ public class JsonWebTokenController {
     private JwtHelper jwtHelper;
 
     @RequestMapping(value = "/token")
-    public JSONObject getAccessToken(LoginInfo loginInfo, Device device) {
+    public JSONObject getAccessToken(HttpServletResponse response, LoginInfo loginInfo, Device device) {
         JSONObject resultMsg = new JSONObject();
         try {
             if (loginInfo.getClientId() == null) {
@@ -82,13 +86,22 @@ public class JsonWebTokenController {
 
             resultMsg.put("result_code", 200);
             resultMsg.put("msg", "success");
-            resultMsg.put("token", accessToken);
-            return resultMsg;
+            resultMsg.put("token", accessTokenEntity);
 
+            //设置cookie
+            Cookie cookie =new Cookie("token",accessToken);
+            cookie.setHttpOnly(true);
+            //注：Domain为设置Cookie的有效域，Path限制有效路径
+            //1、必须是1-9、a-z、A-Z、. 、- （注意是-不是_）这几个字符组成
+            //2、必须是数字或字母开头
+            //3、必须是数字或字母结尾
+            //cookie.setDomain("jwt");
+            response.addCookie(cookie);
+            return resultMsg;
         } catch (Exception ex) {
             System.out.println(ex);
             resultMsg.put("result_code", 500);
-            resultMsg.put("msg", "other error");
+            resultMsg.put("msg", "other error!");
             return resultMsg;
         }
     }
