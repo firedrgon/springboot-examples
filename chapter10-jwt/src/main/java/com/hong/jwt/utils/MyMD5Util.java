@@ -14,9 +14,10 @@ public class MyMD5Util {
 
     /**
      * 普通MD5
-     * @author hong
-     * @param  password
+     *
+     * @param password
      * @return
+     * @author hong
      */
     public static String MD5(String password) {
         MessageDigest md5 = null;
@@ -48,21 +49,22 @@ public class MyMD5Util {
 
     /**
      * 加盐MD5
-     * @author hong
-     * @time 2017-6-11 下午8:45:04
+     *
      * @param password
      * @return
+     * @author hong
+     * @time 2017-6-11 下午8:45:04
      */
     public static String MD5Salt(String password) {
-            Random r = new Random();
-            StringBuilder sb = new StringBuilder(16);
-            sb.append(r.nextInt(99999999)).append(r.nextInt(99999999));
-            int len = sb.length();
-            if (len < 16) {
-                for (int i = 0; i < 16 - len; i++) {
-                    sb.append("0");
-                }
+        Random r = new Random();
+        StringBuilder sb = new StringBuilder(16);
+        sb.append(r.nextInt(99999999)).append(r.nextInt(99999999));
+        int len = sb.length();
+        if (len < 16) {
+            for (int i = 0; i < 16 - len; i++) {
+                sb.append("0");
             }
+        }
         String salt = sb.toString();
         password = md5Hex(password + salt);
         char[] cs = new char[48];
@@ -77,11 +79,12 @@ public class MyMD5Util {
 
     /**
      * 校验加盐后是否和原文一致
-     * @author hong
-     * @time 2017-6-11 下午8:45:39
+     *
      * @param password
      * @param md5
      * @return
+     * @author hong
+     * @time 2017-6-11 下午8:45:39
      */
     public static boolean verify(String password, String md5) {
         char[] cs1 = new char[32];
