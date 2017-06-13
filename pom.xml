@@ -36,6 +36,7 @@
         <module>chapter10-shiro</module>
         <module>chapter11-caching-ehcache</module>
         <module>chapter12-rocketmq</module>
+        <module>chapter10-security</module>
     </modules>
 
     <properties>

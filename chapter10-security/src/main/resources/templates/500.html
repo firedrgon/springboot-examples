@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head >
+</head>
+<body>
+	<object data="fragments/header.html" th:include="fragments/header::header" th:remove="tag" />
+	<div class="container">
+		<p>
+			系统错误！
+		</p>
+	</div>
+	<!-- /.container -->
+
+	<object data="fragments/footer.html" th:include="fragments/footer::footer" th:remove="tag" />
+</body>
+</html>

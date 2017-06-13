@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head >
+</head>
+<body>
+	<object data="fragments/header.html" th:include="fragments/header::header" th:remove="tag" />
+	<iframe th:src="images/404.svg" width="200" height="200" ></iframe>
+	<object data="fragments/footer.html" th:include="fragments/footer::footer" th:remove="tag" />
+</body>
+</html>
