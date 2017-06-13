@@ -4,8 +4,7 @@ package com.hong.security.domain;
 /**
  * User 实体
  * 
- * @since 1.0.0 2017年3月5日
- * @author <a href="https://waylau.com">Way Lau</a>
+ * Created by hong on 2017/6/13.
  */
 public class User {
 

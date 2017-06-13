@@ -13,9 +13,8 @@ import org.springframework.web.servlet.ModelAndView;
 
 /**
  * 用户控制器.
- * 
- * @author hong
- * @date 2017年2月26日
+ *
+ * Created by hong on 2017/6/13.
  */
 @RestController
 public class UserController {
