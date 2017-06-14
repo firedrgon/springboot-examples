@@ -30,16 +30,6 @@ public class MainController {
         return "403";
     }
 
-    @GetMapping("/404")
-    public String default_404() {
-        return "404";
-    }
-
-    @GetMapping("/500")
-    public String default_500() {
-        return "500";
-    }
-
     @GetMapping("/login-error")
     public String loginError(Model model) {
         model.addAttribute("loginError", true);
