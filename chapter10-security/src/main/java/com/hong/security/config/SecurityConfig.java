@@ -38,9 +38,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
             .antMatchers("/admins/**").hasRole("ADMIN")   // 需要相应的角色才能访问
             .and() //Java配置中的and()方法类似于xml配置中的结束标签，and()方法返回的对象还是HttpSecurity，方便我们继续对HttpSecurity进行配置。
             .formLogin()   //基于 Form 表单登录验证
-            .loginPage("/login").failureUrl("/login-error")  // 自定义登录界面
+            .loginPage("/login")  // 自定义登录界面
+            .failureUrl("/login-error")  // 自定义登录失败页面
+            //在没有配置登录表单的页面URL时，Spring Security就会自动生成一个登录页面(访问地址 /login)，并且对用户的登录操作进行处理。
             .and()
-            .logout()
+            .logout() //配置登出
             .logoutSuccessUrl("/login") //成功登出后，重定向到登录页.
             .and()
             .exceptionHandling().accessDeniedPage("/403");//处理没有访问权限异常，拒绝访问就重定向到 403 页面
