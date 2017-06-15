@@ -32,7 +32,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
          * **/
 
         // 设置url访问权限,映射路径等等.
-        http.authorizeRequests() // 要求访问应用的所有用户都要被验证
+        http.authorizeRequests() // 该配置是要求应用中所有url的访问都需要进行验证.
             .antMatchers("/css/**", "/js/**", "/fonts/**", "/index").permitAll()  // 虽都可以访问
             .antMatchers("/users/**").hasRole("USER")   // 需要相应的角色才能访问
             .antMatchers("/admins/**").hasRole("ADMIN")   // 需要相应的角色才能访问
