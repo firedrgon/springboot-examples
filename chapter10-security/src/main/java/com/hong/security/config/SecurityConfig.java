@@ -54,6 +54,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
      */
     @Bean
     public UserDetailsService userDetailsService() {
+         /** 用户的认证信息是使用 InMemoryUserDetailsManager 来存储在内存中；**/
         InMemoryUserDetailsManager manager = new InMemoryUserDetailsManager(); // 在内存中存放用户信息
         manager.createUser(User.withUsername("hong").password("123456").roles("USER").build());
         manager.createUser(User.withUsername("admin").password("123456").roles("USER","ADMIN").build());
