@@ -53,6 +53,7 @@ public class JwtHelper {
         this.expiration = expiration;
     }
 
+
     public  Claims getClaimsFromToken(String token){
         Claims claims;
         try {
@@ -66,14 +67,21 @@ public class JwtHelper {
         return claims;
     }
 
+
+    /**
+     * 生成token.
+     * @param username 用户名
+     * @param device  org.springframework.mobile.device 设备判断对象
+     * @return
+     */
     public  String createJWT(String username, Device device) {
         Map<String, Object> claims = new HashMap<>();
         claims.put(CLAIM_KEY_USERNAME, username);
         claims.put(CLAIM_KEY_AUDIENCE, generateAudience(device));
         claims.put(CLAIM_KEY_CREATED, new Date());
         return generateToken(claims);
-
     }
+
 
     private  String generateToken(Map<String, Object> claims) {
         return Jwts.builder()
@@ -83,6 +91,10 @@ public class JwtHelper {
                 .compact();
     }
 
+    /**
+     * 生成token 时间 = 当前时间+ expiration（properties中配置的失效时间）
+     * @return
+     */
     private Date generateExpirationDate() {
         return new Date(System.currentTimeMillis() + expiration * 1000);
     }
@@ -104,6 +116,11 @@ public class JwtHelper {
         return audience;
     }
 
+    /**
+     * 通过token 获取用户名.
+     * @param authToken
+     * @return
+     */
     public String getUsernameFromToken(String authToken) {
         String username;
         try {
@@ -116,12 +133,22 @@ public class JwtHelper {
     }
 
 
+    /**
+     * 判断token 失效时间是否到了
+     * @param token
+     * @return
+     */
     private Boolean isTokenExpired(String token) {
         final Date expiration = getExpirationDateFromToken(token);
         return expiration.before(new Date());
     }
 
 
+    /**
+     * 获取设置的token 失效时间.
+     * @param token
+     * @return
+     */
     public Date getExpirationDateFromToken(String token) {
         Date expiration;
         try {
@@ -134,9 +161,12 @@ public class JwtHelper {
     }
 
 
-
-
-
+    /**
+     * Token失效校验.
+     * @param token token字符串
+     * @param loginInfo 用户信息
+     * @return
+     */
     public Boolean validateToken(String token, LoginInfo loginInfo) {
         //1.校验签名是否正确
         //2.token是否过期
