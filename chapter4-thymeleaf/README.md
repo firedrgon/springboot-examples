@@ -4,6 +4,17 @@
 > 2.Thymeleaf基础知识
 
 
+一、资源文件的约定目录结构 
+Maven的资源文件目录：/src/Java/resources 
+spring-boot项目静态文件目录：/src/java/resources/static 
+spring-boot项目模板文件目录：/src/java/resources/templates 
+spring-boot静态首页的支持，即index.html放在以下目录结构会直接映射到应用的根目录下：
+[html] view plain copy
+classpath:/META-INF/resources/index.html    
+classpath:/resources/index.html    
+classpath:/static/index.html    
+calsspath:/public/index.html    
+
 
 ##表达式支持的语法
 
