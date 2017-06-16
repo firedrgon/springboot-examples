@@ -37,6 +37,7 @@
         <module>chapter11-caching-ehcache</module>
         <module>chapter12-rocketmq</module>
         <module>chapter10-security</module>
+        <module>chapter10-security-jwt</module>
     </modules>
 
     <properties>
