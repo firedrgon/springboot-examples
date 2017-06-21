@@ -1,4 +1,7 @@
 # springboot-examples
+> spring boot 出现的目的是为了使spring  framework 的应用开发变得简单，更容易上手非侵入性的提供了一套常用的配置，但是用户可以随时覆盖，
+  提供了更多的基础性、非业务性的功能（内置Web容器、权限认证机制、监控、应用配置管理等等）。完全不依赖于xml。 
+
 spring boot 学习系列 (使用版本 1.5.3)
 
 * 1.chapter1> springboot 项目结构解析 
