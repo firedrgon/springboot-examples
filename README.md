@@ -1,33 +1,6 @@
 # SpringBoot-Example
 spring boot 学习系列 (使用版本 1.5.3)
 
-
-## 后续计划...
-* 日志系列：
-     *  Log4J2
-     *  Logback  
-* nosql系列：
-     *  MongoDB
-     *  memcached
-     *  Elasticsearch
-     *  Solr
-* 缓存系列：
-     *  annotation-redis-cache
-* 权限系列：
-     *  Spring Security Jwt Token
-     *  OAuth2
-
-* Message ......     
-     
-## 参考资源：
-* https://git.oschina.net/didispace/SpringBoot-Learning
-* http://412887952-qq-com.iteye.com/category/356333
-* https://git.oschina.net/jeff1993/springboot-learning-example
-* http://blog.csdn.net/column/details/spring-boot.html
-
-
-
-spring boot 学习系列 (使用版本 1.5.3) 
 * 1.chapter1> springboot 项目结构解析 
 * 2.chapter2> 配置文件详解：自定义属性、随机数、多环境配置等（目前只使用properties,后续添加yml的配置方式用法）
 * 3.chapter3> spring boot 构建restful api以及单元测试,替换默认json 解析框架，使用fastjson
@@ -57,3 +30,28 @@ spring boot 学习系列 (使用版本 1.5.3)
 * 25.chapter10-security-jwt> spring boot security token 整合实现认证登陆.
 * 26.chapter11-caching-ehcache> spring boot框架缓存系列 ehcache .
 * 27.chapter12-rocketmq> spring boot 整合rocketmq 测试.	
+
+## 后续计划...
+* 日志系列：
+     *  Log4J2
+     *  Logback  
+* nosql系列：
+     *  MongoDB
+     *  memcached
+     *  Elasticsearch
+     *  Solr
+* 缓存系列：
+     *  annotation-redis-cache
+* 权限系列：
+     *  Spring Security Jwt Token
+     *  OAuth2
+
+* Message ......     
+     
+## 参考资源：
+* https://git.oschina.net/didispace/SpringBoot-Learning
+* http://412887952-qq-com.iteye.com/category/356333
+* https://git.oschina.net/jeff1993/springboot-learning-example
+* http://blog.csdn.net/column/details/spring-boot.html
+
+
