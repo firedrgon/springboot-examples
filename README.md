@@ -46,7 +46,6 @@ spring boot 学习系列 (使用版本 1.5.3)
 * 缓存系列：
      *  annotation-redis-cache
 * 权限系列：
-     *  Spring Security Jwt Token
      *  OAuth2
 
 * Message ......     

@@ -68,6 +68,14 @@
             <!--</exclusions>-->
         </dependency>
 
+
+        <!--提供的对应用系统的自省和监控的集成功能.-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
+
+
         <!-- 测试模块，包括JUnit、Hamcrest、Mockito -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
