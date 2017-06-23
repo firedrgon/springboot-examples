@@ -17,6 +17,16 @@
             <artifactId>fastjson</artifactId>
             <version>1.2.15</version>
         </dependency>
+
+
+        <!--
+        spring hateoas 支持
+        满足 HATEOAS 约束的 REST 服务最大的特点在于服务器提供给客户端的表达中包含了动态的链接信息，客户端通过这些链接来发现可以触发状态转换的动作。
+        -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-hateoas</artifactId>
+        </dependency>
     </dependencies>
 
 </project>
