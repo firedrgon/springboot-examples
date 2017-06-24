@@ -1,5 +1,6 @@
 package com.hong.web;
 
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.hong.domain.User;
@@ -33,7 +34,7 @@ public class JsonController {
      * 注： 查看pom 依赖时可以看到spring boot 默认添加了jackson 的包。
      * @return
      */
-    @RequestMapping(value="/getUser")//,produces = "application/json; charset=utf-8"  在设置第三方json 解析框架fastjson 时，统一处理
+    @RequestMapping(value="/user",produces = MediaType.APPLICATION_JSON_UTF8_VALUE)//,produces = "application/json; charset=utf-8"  在设置第三方json 解析框架fastjson 时，统一处理
     public User getUser(){
         User user =new User();
         user.setId(1L);

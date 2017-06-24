@@ -16,6 +16,9 @@ import java.util.*;
 @RequestMapping("/users")
 public class UserController {
 
+    /**
+     * 方法来获取一个线程安全的集合.
+     */
     static Map<Long, User> users = Collections.synchronizedMap(new HashMap<Long, User>());
 
     @RequestMapping(value = "/",method = RequestMethod.GET)
