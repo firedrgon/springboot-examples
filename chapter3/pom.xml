@@ -21,7 +21,8 @@
 
         <!--
         spring hateoas 支持
-        满足 HATEOAS 约束的 REST 服务最大的特点在于服务器提供给客户端的表达中包含了动态的链接信息，客户端通过这些链接来发现可以触发状态转换的动作。
+        满足 HATEOAS 约束的 REST 服务最大的特点在于服务器提供给客户端的表达中包含了动态的链接信息，
+        客户端通过这些链接来发现可以触发状态转换的动作。
         -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -29,10 +30,20 @@
         </dependency>
 
 
-        <!-- xml 支持. -->
+        <!--
+         xml 支持.
+         当引入了xml支持后，你会发现默认返回变成了xml ，所以，如果你还需要返回json ，就在
+         RequestMapping 中 指明 返回当类型：produces = MediaType.APPLICATION_JSON_UTF8_VALUE
+        -->
         <dependency>
             <groupId>com.fasterxml.jackson.dataformat</groupId>
             <artifactId>jackson-dataformat-xml</artifactId>
+        </dependency>
+
+
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpclient</artifactId>
         </dependency>
 
     </dependencies>

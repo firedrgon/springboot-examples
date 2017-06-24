@@ -19,7 +19,7 @@ public class UserController {
     /**
      * 方法来获取一个线程安全的集合.
      */
-    static Map<Long, User> users = Collections.synchronizedMap(new HashMap<Long, User>());
+    static Map<Integer, User> users = Collections.synchronizedMap(new HashMap<Integer, User>());
 
     @RequestMapping(value = "/",method = RequestMethod.GET)
     public List<User> getUserList(){
@@ -33,7 +33,7 @@ public class UserController {
     public String postUser(@ModelAttribute User user) {
         // 处理"/users/"的POST请求，用来创建User
         // 除了@ModelAttribute绑定参数之外，还可以通过@RequestParam从页面中传递参数
-        users.put(user.getId(), user);
+//        users.put(user.getUserId(), user);
         return "success";
     }
 
@@ -45,7 +45,7 @@ public class UserController {
     }
 
     @RequestMapping(value="/{id}", method=RequestMethod.PUT)
-    public String putUser(@PathVariable Long id, @ModelAttribute User user) {
+    public String putUser(@PathVariable int id, @ModelAttribute User user) {
         // 处理"/users/{id}"的PUT请求，用来更新User信息
         User u = users.get(id);
         u.setName(user.getName());

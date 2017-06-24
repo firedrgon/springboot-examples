@@ -1,15 +1,16 @@
 package com.hong.domain;
 
 import com.alibaba.fastjson.annotation.JSONField;
+import org.springframework.hateoas.ResourceSupport;
 
 import java.util.Date;
 
 /**
  * Created by hong on 2017/4/20.
  */
-public class User {
+public class User  extends ResourceSupport{ // 继承ResourceSupport ，实现对hateoas 的支持.
 
-    private Long id;
+    private int id;
     private String name;
     private Integer age;
 
@@ -25,11 +26,11 @@ public class User {
     @JSONField(serialize = false)
     private String msg;
 
-    public Long getId() {
+    public int getUserId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -63,5 +64,16 @@ public class User {
 
     public void setMsg(String msg) {
         this.msg = msg;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", age=" + age +
+                ", createTime=" + createTime +
+                ", msg='" + msg + '\'' +
+                '}';
     }
 }
