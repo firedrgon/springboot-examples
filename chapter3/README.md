@@ -60,5 +60,41 @@ REST 服务端实践：
   * HATEOAS 应用
   * 文档生成等
    
-     
-  
+总结
+   * RestTemplate
+   * ResourceSupport
+   * RequestEntity
+   * ResponseEntity
+   * RequestParam
+   * CookieValue
+   * RequestHeader
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
