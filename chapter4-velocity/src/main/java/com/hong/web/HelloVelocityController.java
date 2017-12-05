@@ -10,8 +10,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class HelloVelocityController {
 
-
-
     @RequestMapping("/hello")
     public String index(Model model){
         model.addAttribute("name","hong");
