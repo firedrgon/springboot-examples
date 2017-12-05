@@ -133,3 +133,36 @@ springboot默认就支持国际化配置，只需要添加国际化配置文件�
 (12)固定的区域解析器之FixedLocaleResolver ；
 
 (13)使用参数修改用户的区域；
+
+
+###总结
+####国际化最常需要解决的问题
+* 页面上能够根据浏览器设置的语言来动态展现文本，数值，时间等；<span th:text="#{welcome}"></span>
+* 可以在Bean中获取设置的Locale信息；LocaleContextHolder.getLocale(),MessageSource.getMessage()
+* 可以通过动态链接的方式来切换locale信息。RequestContextUtils.getLocaleResolver(),localeResolver.setLocale
+* ResourceBundleMessageSource国际化资源文件配置,LocaleContextHolder获得应用当前的Locale,MessageSource在Bean获取信息
+* RequestContextUtils.getLocaleResolver获得当前应用的LocaleResolver
+* LocaleContextHolder.getLocale()获得当前应用的Locale
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

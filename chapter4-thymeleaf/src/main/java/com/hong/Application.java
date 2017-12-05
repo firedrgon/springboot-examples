@@ -36,13 +36,13 @@ public class Application {
      * 会话区域解析器之SessionLocaleResolver；
      * @return
      */
-//    @Bean
-//    public LocaleResolver localeResolver() {
-//        SessionLocaleResolver slr = new SessionLocaleResolver();
-//        //设置默认区域  Locale.US  Locale.CHINA ...
-//        slr.setDefaultLocale(Locale.CHINA);
-//        return slr;
-//    }
+    @Bean
+    public LocaleResolver localeResolver() {
+        SessionLocaleResolver slr = new SessionLocaleResolver();
+        //设置默认区域  Locale.US  Locale.CHINA ...
+        slr.setDefaultLocale(Locale.CHINA);
+        return slr;
+    }
 
     /**
      * Cookie区域解析器之CookieLocaleResolver；
