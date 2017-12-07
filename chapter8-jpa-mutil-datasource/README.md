@@ -1,0 +1,3 @@
+## 总结
+* jpa多数据源的配置,application.properties配置多个数据源，和jpa的设置
+*
