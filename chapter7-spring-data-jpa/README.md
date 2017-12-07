@@ -12,3 +12,11 @@
 *  创建service类。
 *  创建restful请求类。
 *  测试
+
+##总结
+* 引入spring-boot-starter-data-jpa包
+* 在application.xml配置spring.jpa.database等配置
+* 继承JpaRepository接口,数据库表和java Bean对应映射@Entity,@Table,@Id,@GeneratedValue
+
+
+

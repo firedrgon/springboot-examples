@@ -52,14 +52,12 @@ public class DataSourceConfig {
      */
     @Bean(name = "primaryJdbcTemplate")
     @Primary
-    public JdbcTemplate primaryJdbcTemplate(
-            @Qualifier("primaryDataSource") DataSource dataSource) {
+    public JdbcTemplate primaryJdbcTemplate(@Qualifier("primaryDataSource") DataSource dataSource) {
         return new JdbcTemplate(dataSource);
     }
 
     @Bean(name = "secondaryJdbcTemplate")
-    public JdbcTemplate secondaryJdbcTemplate(
-            @Qualifier("secondaryDataSource") DataSource dataSource) {
+    public JdbcTemplate secondaryJdbcTemplate(@Qualifier("secondaryDataSource") DataSource dataSource) {
         return new JdbcTemplate(dataSource);
     }
 
