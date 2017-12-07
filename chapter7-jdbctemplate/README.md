@@ -5,5 +5,7 @@
  * 编写DemoService类，引入DemoDao进行使用
  * 编写DemoController进行简单测试。
  
- 
+## 总结
+ * 加入spring-boot-starter-jdbc
+ * 注入@Autowired private JdbcTemplate jdbcTemplate;
  
