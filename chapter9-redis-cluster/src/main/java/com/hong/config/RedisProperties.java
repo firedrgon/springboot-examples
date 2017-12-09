@@ -14,7 +14,7 @@ public class RedisProperties {
 
     private String nodes;
 
-    private Integer   commandTimeout;
+    private Integer commandTimeout;
 
     public String getNodes() {
         return nodes;

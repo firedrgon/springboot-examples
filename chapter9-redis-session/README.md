@@ -42,5 +42,49 @@
           # 连接超时时间（毫秒）
           spring.redis.timeout=0
       
-   其他集中管理参照：http://docs.spring.io/spring-session/docs/1.2.2.RELEASE/reference/html5/#httpsession-jdbc       
-         
+   其他集中管理参照：http://docs.spring.io/spring-session/docs/1.2.2.RELEASE/reference/html5/#httpsession-jdbc
+
+##总结
+* org.springframework.session-->spring.session.data.redis
+* @EnableRedisHttpSession,RedisConnectionFactory
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
