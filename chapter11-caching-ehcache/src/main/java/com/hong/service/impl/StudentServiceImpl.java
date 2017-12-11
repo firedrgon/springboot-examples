@@ -37,11 +37,11 @@ public class StudentServiceImpl implements StudentService {
 
     /**
      * 根据id查询学生信息
-     *
+     * condition:true才会查缓存，false不查缓存
      * @param id
      * @return
      */
-    @Cacheable(value = "studentCache", key = "'student_'+#id")
+    @Cacheable(value = "studentCache", key = "'student_'+#id",condition = "#id>5")
     @Override
     public Student findById(Long id) {
         return studentDao.findOne(id);

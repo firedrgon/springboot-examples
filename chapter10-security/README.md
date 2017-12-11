@@ -4,3 +4,8 @@
 
 ## 总结
 * io.jsonwebtoken.jjwt,spring-boot-starter-security,spring-boot-starter.thymeleaf
+
+## 总结
+* 引入security包,spring-boot-starter-security,还有thymeleaf-extras-springsecurity4
+* @EnableWebSecurity,继承WebSecurityConfigurerAdapter
+* thymeleaf和spring security的集成

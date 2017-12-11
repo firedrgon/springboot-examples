@@ -25,11 +25,11 @@ public class EHCacheTest {
 
     @Before
     public void setup() {
-//        Student student = new Student();
-//        student.setName("张三");
-//        student.setAge(11);
-//        student.setAddress("湖南常德");
-//        studentService.save(student);
+        Student student = new Student();
+        student.setName("张三");
+        student.setAge(11);
+        student.setAddress("湖南常德");
+        studentService.save(student);
 
     }
 

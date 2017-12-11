@@ -42,3 +42,8 @@
 2、@RequiresRoles("admin") ：在方法上加注解的时候；
 3、[@shiro.hasPermission name = "admin"][/@shiro.hasPermission]：在页面上加shiro标签的时候，即进这个页面的时候扫描到有这个标签的时候。
 
+##总结
+* Subject,SecurityManager,Realm,ShiroFilterFactoryBean,hibernate validator
+* shiro和thymeleaf的集成
+* RedirectAttributes重定向,BindingResult,参数校验结果ShiroFilterFactoryBean,LoginFilter设置
+

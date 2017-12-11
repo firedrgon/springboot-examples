@@ -48,3 +48,36 @@
      }  
      
      @CachePut 注释，这个注释可以确保方法被执行，同时方法的返回值也被记录到缓存中，实现缓存与数据库的同步更新，理解为update语句。
+
+## 总结
+* ehcache.xml，EhCache缓存配置文件
+* 启用缓存：@EnableCaching
+* 缓存的使用：@Cacheable,@CacheEvict,@CachePut
+* @Cacheable的作用 主要针对方法配置，能够根据方法的请求参数对其结果进行缓存(condition:true则查缓存，false不查缓存)
+* @CachePut 的作用 主要针对方法配置，能够根据方法的请求参数对其结果进行缓存，和 @Cacheable 不同的是，它每次都会触发真实方法的调用
+* @CachEvict 的作用 主要针对方法配置，能够根据一定的条件对缓存进行清空
+* @CacheConfig所有的@Cacheable（）里面都有一个value＝“xxx”的属性，这显然如果方法多了，写起来也是挺累的，如果可以一次性声明完 那就省事了
+  使用在类上,表示该类使用的缓存名称 @CacheConfig("books")
+* @Caching 有时候我们可能组合多个Cache注解使用；比如用户新增成功后，我们要添加id–>user；username—>user；email—>user的缓存；此时就需要@Caching组合多个注解标签了。
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -14,3 +14,4 @@
 
 ## 总结
  * jwt:Json web token,登录时返回token,之后用户使用该token作为登录凭证，使用移动端和api
+ * 在过滤器，或拦截器验证token是否正确
