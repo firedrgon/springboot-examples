@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class UserController {
 
 
-    @PostMapping("/user")
+    @PostMapping("/oauth/user")
     public JSONObject user(int id){
         JSONObject resultMsg =new JSONObject();
         switch (id) {

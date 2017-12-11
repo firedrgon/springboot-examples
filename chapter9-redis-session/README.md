@@ -47,6 +47,7 @@
 ##总结
 * org.springframework.session-->spring.session.data.redis
 * @EnableRedisHttpSession,RedisConnectionFactory
+* 没运行成功!!!!,可能是redis配置需要修改
 
 
 
