@@ -37,7 +37,7 @@ public class SendMessageController {
             for (int i = 0; i < 1000; i++) {
                 //1. 一个应用尽可能用一个 Topic，消息子类型用 tags 来标识，tags 可以由应用自由设置。只有収送消息设置了
                 //   tags，消费方在订阅消息时，才可以利用 tags 在 broker 做消息过滤。
-                Message msg = new Message("Topic", "TagA", JSONObject.toJSONBytes("你好，小菜鸟." + i));
+                Message msg = new Message("Topic1", "TagA", JSONObject.toJSONBytes("你好，小菜鸟." + i));
 
                 //2. 每个消息在业务局面的唯一标识码，要设置到 keys 字段，方便将来定位消息丢失问题。服务器会为每个消
                 //   息创建索引（哈希索引），应用可以通过 topic，key 来查询返条消息内容，以及消息被谁消费。由亍是哈希
