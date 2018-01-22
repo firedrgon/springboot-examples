@@ -18,7 +18,7 @@ public class ConsumerListen {
 
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
-    @EventListener(condition = "#event.topic=='Topic1'")
+    @EventListener(condition = "#event.topic=='Topic'")
     public void listen(RocketMQEvent event) {
         DefaultMQPushConsumer consumer = event.getConsumer();
         try {
